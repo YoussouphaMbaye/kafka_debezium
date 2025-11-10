@@ -42,7 +42,6 @@ curl -X PUT http://localhost:8083/connectors/claims-to-copy-sink/config \
     "connection.username": "docker",
     "connection.password": "docker",
     "table.name.format": "claims_copy",
-    
     "transforms": "unwrap",
     "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState"
   }'
