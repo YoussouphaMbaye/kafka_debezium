@@ -3,11 +3,10 @@
 
 ```
 docker run --tty --network postgres_debezium_cdc_master_default confluentinc/cp-kafkacat kafkacat -b kafka:9092 -C -s key=s -s value=avro -r http:/schema-registry:8081 -t postgres.schemaname.tablename (Tail the kafka topic to see if it's listening to debezium postgres changes)
-```
 
 ```
 curl -i -X POST -H "Accept:application/json" -H "Content-Type:application/json" 127.0.0.1:8083/connectors/ --data "@debezium.json"
-'''
+
 
 ```
 docker run --tty --network change-data-capture_debezium-net confluentinc/cp-kafkacat kafkacat -b kafka:9092 -C -s key=s -s value=avro -r http:
@@ -15,7 +14,8 @@ docker run --tty --network change-data-capture_debezium-net confluentinc/cp-kafk
 ```
 http://localhost:8083/connectors/postgres-connector
 http://localhost:8083/connectors/postgres-connector/status
-'''
+
+```
  docker run --tty --network change-data-capture_debezium-net confluentinc/cp-kafkacat   kafkacat -b kafka:9092 -C -J -t postgres-server.public.claims
 
 ```
@@ -25,7 +25,7 @@ alter table public.claims replica identity full;
 
 insert into public.claims values(1,'2020-02-02',2,'p');
 insert into public.claims values(2,'2020-03-02',2,'p');
-```
+
 
 1. Create a Sink Connector to Sync Tables
 bash
